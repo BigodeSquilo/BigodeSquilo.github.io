@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Uma surpresa pra você 💌</title>
+  <style>
+    body {
+      background: #fff0f5;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      padding: 3rem;
+      transition: background-color 1s ease;
+    }
+
+    h1 {
+      font-size: 2.5rem;
+      color: #d63384;
+    }
+
+    p {
+      font-size: 1.3rem;
+      color: #444;
+      margin-top: 1.5rem;
+    }
+
+    .btn {
+      margin: 1rem;
+      padding: 1rem 2rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e0559f;
+    }
+
+    #mensagemNao {
+      margin-top: 2rem;
+      color: #d63384;
+      font-weight: bold;
+      font-size: 1.3rem;
+      animation: shake 0.5s;
+    }
+
+    @keyframes shake {
+      0% { transform: translateX(0); }
+      25% { transform: translateX(-5px); }
+      50% { transform: translateX(5px); }
+      75% { transform: translateX(-5px); }
+      100% { transform: translateX(0); }
+    }
+  </style>
+</head>
+<body>
+  <h1>Bu, minha Gatinha 💖</h1>
+
+  <p>
+    Tenho pensado e preparado algo...<br>
+    Feito com muito amor, uma lembrança nossa e uma pergunta importante...
+  </p>
+
+  <p>Você topa descobrir o que é?</p>
+
+  <button class="btn" onclick="verSurpresa()">Quero ver! 💌</button>
+  <button class="btn" onclick="naoVer()">Não quero ver 🙈</button>
+
+  <div id="mensagemNao"></div>
+
+  <script>
+    function verSurpresa() {
+      window.location.href = "auth.html";
+    }
+
+    function naoVer() {
+      const msg = document.getElementById("mensagemNao");
+      msg.textContent = "Essa opção não está disponível pra você, Gatinha! hihihihihihi 😘";
+      msg.style.animation = "shake 0.5s";
+    }
+  </script>
+</body>
+</html>

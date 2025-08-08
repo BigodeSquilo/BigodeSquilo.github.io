@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <title>Autenticação do Coração 💘</title>
+  <style>
+    body {
+      background: #fff0f5;
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+
+    h1 {
+      color: #d63384;
+      font-size: 2.2rem;
+      margin-bottom: 2rem;
+    }
+
+    form {
+      max-width: 500px;
+      margin: 0 auto;
+      background-color: #ffeef7;
+      padding: 2rem;
+      border-radius: 20px;
+      box-shadow: 0 0 10px rgba(214, 51, 132, 0.2);
+    }
+
+    label {
+      display: block;
+      margin-top: 1.5rem;
+      font-size: 1.1rem;
+      color: #444;
+      text-align: left;
+    }
+
+    input {
+      padding: 0.6rem;
+      width: 100%;
+      border-radius: 10px;
+      border: 1px solid #ccc;
+      margin-top: 0.4rem;
+      font-size: 1rem;
+    }
+
+    .btn {
+      margin-top: 2rem;
+      padding: 1rem 2.5rem;
+      background-color: #ff69b4;
+      color: white;
+      border: none;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e0559f;
+    }
+
+    .erro {
+      color: red;
+      font-weight: bold;
+      margin-top: 1.5rem;
+    }
+  </style>
+</head>
+<body>
+  <h1>Responda essas perguntas para continuar 💖</h1>
+
+  <form id="formulario">
+    <label for="pergunta1">1️⃣ Qual o local do nosso primeiro beijo? 👀👀</label>
+    <input type="text" id="pergunta1" required>
+
+    <label for="pergunta3">2️⃣ Quantas formigas cabem num Fusca sem abrir as janelas?</label>
+    <input type="text" id="pergunta3">
+
+    <label for="pergunta4">3️⃣ Digite o número do seu cartão de crédito (hihihihihi😂)</label>
+    <input type="text" id="pergunta4">
+
+    <button type="submit" class="btn">Enviar 💌</button>
+    <div id="erro" class="erro"></div>
+  </form>
+
+  <script>
+    document.getElementById("formulario").addEventListener("submit", function(e) {
+      e.preventDefault();
+
+      const resp1 = document.getElementById("pergunta1").value.trim().toLowerCase();
+      const respostaCorreta1 = "rio real";
+
+      if (resp1 === respostaCorreta1) {
+        window.location.href = "pedido.html";
+      } else {
+        document.getElementById("erro").textContent = "Hmm... essa não é a resposta que eu esperava. Tenta lembrar daquele momento mágico... 💋";
+      }
+    });
+  </script>
+</body>
+</html>
