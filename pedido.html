@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Quer namorar comigo?</title>
+  <link href="https://fonts.googleapis.com/css2?family=Pacifico&family=Quicksand&display=swap" rel="stylesheet">
+  <style>
+    body {
+      background: linear-gradient(135deg, #ffe6f0, #fff0f5);
+      font-family: 'Quicksand', sans-serif;
+      text-align: center;
+      padding: 2rem;
+      overflow-x: hidden;
+      position: relative;
+    }
+
+    h1 {
+      color: #d63384;
+      font-family: 'Pacifico', cursive;
+      font-size: 2.8rem;
+      animation: fadeIn 1.5s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(-20px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    img.principal {
+      width: 300px;
+      height: auto;
+      border-radius: 20px;
+      box-shadow: 0 0 20px rgba(0, 0, 0, 0.2);
+      margin: 1.5rem 0;
+    }
+
+    #mensagemCompleta {
+      font-size: 1.3rem;
+      color: #444;
+      margin: 2rem auto;
+      max-width: 600px;
+      animation: fadeIn 2s ease-in-out;
+    }
+
+    #pergunta {
+      font-size: 2rem;
+      font-weight: bold;
+      color: #d63384;
+      margin-top: 2rem;
+    }
+
+    .contador {
+      margin-top: 1rem;
+      font-size: 1.1rem;
+      color: #555;
+    }
+
+    .buttons {
+      margin-top: 2rem;
+    }
+
+    .btn {
+      background-color: #ff69b4;
+      border: none;
+      color: white;
+      padding: 1rem 2rem;
+      margin: 0.5rem;
+      border-radius: 30px;
+      font-size: 1.2rem;
+      cursor: pointer;
+      transition: background-color 0.3s;
+    }
+
+    .btn:hover {
+      background-color: #e0559f;
+    }
+
+    #resposta {
+      margin-top: 2rem;
+      font-size: 1.6rem;
+      color: #d63384;
+      font-weight: bold;
+    }
+
+    .musica {
+      margin-top: 2rem;
+    }
+
+    .corinthians {
+      position: absolute;
+      bottom: 10px;
+      right: 10px;
+      width: 40px;
+      opacity: 0.05;
+    }
+
+    .heart {
+      position: fixed;
+      top: 10%;
+      left: 50%;
+      font-size: 3rem;
+      color: red;
+      animation: pulse 1s infinite alternate;
+      transform: translateX(-50%);
+    }
+
+    @keyframes pulse {
+      from { transform: scale(1) translateX(-50%); }
+      to { transform: scale(1.2) translateX(-50%); }
+    }
+  </style>
+</head>
+<body>
+  <h1>🌹 Eu te amo minha Princesa 🌹</h1>
+
+  <img src="Bruna.jpg" alt="Foto nossa" class="principal">
+
+  <div id="mensagemCompleta">
+    Minha GatinhaLindaMaravilhosa,<br> você é incrível, e desde que te conheci, minha vida ficou muito mais feliz. 💖<br><br>
+    Aqueles dias de São João foram inesquecíveis. Aquelas noites estão na minha mente até hoje. <br><br>
+    E é por isso que neste momento tão especial, só consigo pensar em te pedir algo muito simples, mas cheio de significado...
+  </div>
+
+  <div class="contador" id="contadorDias"></div>
+
+  <div id="pergunta">Bu, quer namorar comigo? 💞</div>
+
+  <div class="buttons">
+    <button class="btn" onclick="responder('Não')">Não</button>
+    <button class="btn" onclick="responder('Claro que sim 😍')">Claro que sim 😍</button>
+    <button class="btn" onclick="responder('Mil vezes sim 💍')">Mil vezes sim 💍</button>
+  </div>
+
+  <div id="resposta"></div>
+
+  <div class="musica">
+    <audio id="player" controls autoplay>
+      <source src="https://www.youtube.com/watch?v=4Sv66qB4YwU" type="audio/mpeg">
+      Seu navegador não suporta áudio.
+    </audio>
+  </div>
+
+  <img src="https://upload.wikimedia.org/wikipedia/pt/5/53/SC_Corinthians_Paulista_%28novo_escudo%29.png" class="corinthians" alt="Corinthians">
+
+  <div class="heart">❤️</div>
+
+  <script src="https://cdn.jsdelivr.net/npm/js-confetti@latest/dist/js-confetti.browser.js"></script>
+  <script>
+    const jsConfetti = new JSConfetti();
+
+    function responder(resposta) {
+      if (resposta === 'Não') {
+        document.getElementById('resposta').textContent = 'Essa opção não está disponível pra você, Gatinha! 😘';
+      } else {
+        document.getElementById('resposta').textContent = `Eu te amo meu amor! 💕`;
+        jsConfetti.addConfetti({
+          emojis: ['💍', '💕', '🌹']
+        });
+      }
+    }
+
+    function diasDesde(dataInicial) {
+      const hoje = new Date();
+      const inicio = new Date(dataInicial);
+      const diff = hoje - inicio;
+      const dias = Math.floor(diff / (1000 * 60 * 60 * 24));
+      return dias;
+    }
+
+    const contador = document.getElementById("contadorDias");
+    const dias = diasDesde("2025-06-23");
+    
+    // Confete automático ao abrir a página
+    jsConfetti.addConfetti({
+      emojis: ['💖', '💍', '💕', '🌹'],
+      emojiSize: 50,
+      confettiNumber: 60
+    });
+  </script>
+</body>
+</html>
